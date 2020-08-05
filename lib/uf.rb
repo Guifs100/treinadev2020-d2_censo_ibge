@@ -6,13 +6,14 @@ class Uf
   def initialize
     @body = 0
     @input = []
+    @table = 0
   end
 
   def select_uf_id(irl)
     @input = []
     response = Faraday.get(irl)
     @body = JSON.parse(response.body, symbolize_names: true)
-    table = show_ufs(@body)
+    @table = show_ufs(@body)
     message_input(@body)
     
     # @input[1]
@@ -40,11 +41,10 @@ class Uf
       end
       puts "\n=================================================="
       puts "\n\nValor inválido, digite uma UF da tabela\n\n"
-      puts table
+      puts @table
     end
     puts "\n==================================================\n"
     puts "\n\nBuscando Tabelas de ranking dos nomes comuns em #{@input[0]}"
-    # select_uf()
     @input[1]
   end
 
