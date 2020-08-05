@@ -37,19 +37,19 @@ _Projeto no qual efetua buscas de nomes comuns nos estados e municípios e frequ
 
 A aplicação apresenta tabelas no terminal e no momento tem 3 tipos de consultas em que o usuário pode realizar.
 
-Consulta de nomes por UF - Onde mostra 3 tabelas (tabela do ranking de nomes comuns em uma UF, tabela do ranking de nomes femininos comuns em uma UF e tabela do ranking de nomes femininos comuns em uma UF), contendo um ranking das pessoas com nomes mais comuns na UF desejada e da quantidade de pessoas que correspondem aos nomes.
+**Consulta de nomes por UF** - Onde mostra 3 tabelas (tabela do ranking de nomes comuns em uma UF, tabela do ranking de nomes femininos comuns em uma UF e tabela do ranking de nomes femininos comuns em uma UF), contendo o ranking das pessoas com os nomes mais comuns na UF desejada e da quantidade de pessoas que correspondem aos nomes.
 
-Consulta de nomes por municipio - Funciona parecido com a consulta de cima, porém, ao ínves de pegar os nomes na UF, pega por municípios e coloca os dados nas 3 tabelas e rankeia.
+**Consulta de nomes por municipio** - Funciona parecido com a consulta de cima, porém, ao ínves de exibir os nomes da UF, pega por municípios e apresenta os dados nas 3 tabelas rankeada.
 
-Consulta por frequência dos nomes nas décadas - Nesta última, exibe apenas uma tabela e contém o nome ou os nomes em que usuário digita e mostra a frequência de pessoas com aqueles nomes nas décadas de 1930 até 2010.
+**Consulta por frequência dos nomes nas décadas** - Nesta última, exibe apenas uma tabela e contém o nome ou os nomes em que o usuário digita e como resultado, aparece a frequência de pessoas com aquele(s) nome(s) nas décadas de 1930 até 2010.
 
 ## Motivação <a name= "motivacao">
 
-Este projeto foi desenvolvido no término do curso da terceira turma do [TreinaDev](https://www.treinadev.com.br/), curso da [Campus code](https://www.campuscode.com.br/). Um desafio onde pude aprender novas habilidades de organização, desafios e de colocar em prática os conhecimentos e técnicas aprendidas no curso para o desenvolvimento do mesmo e aprimorar em todos os sentidos.
+Este projeto foi desenvolvido no término do curso da terceira turma do [TreinaDev](https://www.treinadev.com.br/), curso da [Campus code](https://www.campuscode.com.br/). Um desafio onde pude aprender novas habilidades de organização, documentação, planejamento e programação, além de colocar em prática os conhecimentos e técnicas já aprendidas no curso para o desenvolvimento do mesmo e aprimorar os conhecimentos.
 
-Foi utilizado técnicas do desenvolvimento ágil, como a [tabela kanbam](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/projects/1) do próprio Github projects para organizar as tarefass de valor, com bastante TDD e gem de teste para poder me guiar e orientar-me na programação, controle de versionamento com o git e muito mais.
+Foi utilizado técnicas do desenvolvimento ágil, como a [tabela kanbam](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/projects/1) do próprio Github projects para organizar as tarefass de valores, com bastante TDD e gem de teste e de depuração para me guiar e orientar-me na programação, controle de versionamento com o git e muito mais.
 
-O projeto está sendo um aprendizado muito grande e ainda mais!
+O projeto está sendo um aprendizado muito grande e ainda tem muito mais para implementar e aprender!
 
 ## Requisitos <a name= "requisitos">
 
@@ -96,11 +96,11 @@ A seguir, as consultas da aplicação que tem disponível ao iniciar. A imagem a
 
 #### Consulta de nomes comuns por UF <a name = "consulta1"></a>
 
-A primeira consulta e para acessá-lá, necessita escolher a opção '1' na aplicação.
+A primeira consulta, para acessá-lá, precisa escolher a opção '1' na aplicação.
 
 ![Tabela de UF](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/ufs.png)
 
-Depois digitar a UF que deseja mostra uma tabela com o ranking dos nomes mais comuns do estado, tabela com nomes mais comuns femininos e tabela com nomes masculinos. Conforme nas imagens abaixo de exemplo.
+Depois, digite a UF que deseja e aguarde para mostrar uma tabela com o ranking dos nomes mais comuns do estado, tabela com nomes mais comuns femininos e tabela com nomes masculinos, respectivamente. Conforme nas imagens abaixo de exemplo.
 
 ![Tabela 1 por UF](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/t1_query1.png)
 ![Tabela 2 por UF feminino](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/t2_query1.png)
@@ -108,11 +108,11 @@ Depois digitar a UF que deseja mostra uma tabela com o ranking dos nomes mais co
 
 #### Consulta de nomes comuns por Município <a name = "consulta2"></a>
 
-A segunda consulta e para acessá-lá, necessita escolher a opção '2' na aplicação. Similar a anterior, também necessita selecionar uma UF e depois aparece os municípios para selecionar.
+A segunda consulta, para acessá-lá, necessita escolher a opção '2' na aplicação. Similar a anterior, também necessita selecionar uma UF e depois aparece os municípios para selecionar.
 
 ![Tabela de municipio](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/select_city.png)
 
-Depois digita o número da opção da cidade que fica ao lado do nome do município e aparece as tabelas, similares com a da opção anterior, porém com os dados da cidade.
+Depois digita o número da opção da cidade que fica ao lado do nome do município e aguarde que irá exibir as tabelas, similares com a da opção anterior, porém com os dados a nível da cidade escolhida e não a UF.
 
 ![Tabela 1 por município](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/t1_query2.png)
 ![Tabela 2 por município feminino](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/t2_query2.png)
@@ -121,27 +121,31 @@ Depois digita o número da opção da cidade que fica ao lado do nome do municí
 #### Consulta de frequência do uso dos nomes <a name = "consulta3"></a>
 
 A terceira e última consulta, para acessá-lá, necessita escolher a opção '3' na aplicação.
-Em seguida, é necessário digitar um ou mais nomes (separados por vírgulas) e exibi a frequência do nome foi usado durante as décadas.
+Em seguida, é necessário digitar um ou mais nomes (separados por vírgulas) e exibi a frequência do(s) nome(s) usado durante as décadas.
 
 - :warning: Não pode colocar caracteres especiais e outros simbolos.
-- :warning: Não deve utilizar espaço e para separar os nomes por vírgula( , ).
-- :warning: A API utilizada, não aceita nome composta na busca  ignora os diácriticos do nome.
+- :warning: Não deve utilizar espaço. Deve separar os nomes por vírgula( , ).
+- :warning: A API utilizada, não aceita nome composta na busca ignora os diácriticos(acentos) que o nome possua.
 
 ![Tabela 1 com 1 nome](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/t1_query3_one_name.png)
 ![Tabela 1 com 2 nomes](https://github.com/Guifs100/treinadev2020-d2_censo_ibge/blob/master/assets/t1_query3_two_names.png)
 
 #### Como executar os teste <a name = "teste"></a>
 
-Para executar todos os testes, basta estar na pasta raiz do projeto e executar o rspec.
+Para executar todos os testes, precisa estar na pasta raiz do projeto.
 ~~~
 cd treinadev2020-d2_censo_ibge
+~~~
+
+Caso já esteja na pasta raiz, basta executar o rspec no terminal
+~~~
 rspec
 ~~~
 
 ## Tarefas <a name = "tarefas"></a>
 
 - [x] Tabelas para exibir os dados
-- [x] Acessas as APIs das referências e coletar os seus dados
+- [x] Acessar as APIs das referências e coletar os seus dados
 - [x] Criar a consulta por UF
 - [x] Criar a consulta por municipio
 - [x] Criar a consulta da frequência dos nomes com um nomes
