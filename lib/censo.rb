@@ -6,7 +6,12 @@ require './lib/frequency_names'
 class Censo
   attr_reader :messages, :uf
   attr_accessor :input
-
+  
+  BY_UF = 1.freeze
+  BY_CITY = 2.freeze
+  BY_FREQ_NAME = 3.freeze
+  EXIT = 4.freeze
+  
   def initialize(input: 0)
     @city = City.new
     @frequency_names = FrequencyNames.new
@@ -30,16 +35,16 @@ class Censo
   end
 
   def query(query)
-    if query == 1
+    if query == BY_UF
       @messages.message_query_selected(query)
       query_with_uf
-    elsif query == 2
+    elsif query == BY_CITY
       @messages.message_query_selected(query)
       query_with_city
-    elsif query == 3
+    elsif query == BY_FREQ_NAME
       @messages.message_query_selected(query)
       query_with_frequency_name
-    elsif query == 4
+    elsif query == EXIT
       puts "\n\nObrigado por utilizar a aplicação. Até a próxima\n\n"
     else
       puts "\n\nValor inválido, digite apena um número da tabela\n\n"
@@ -80,4 +85,5 @@ class Censo
     @frequency_names.main("https://servicodados.ibge.gov.br/api/v2/censos/nomes/", @input)
     @messages.message_end_query
   end
+
 end
