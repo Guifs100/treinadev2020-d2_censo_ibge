@@ -57,26 +57,34 @@ class Censo
 
   def query_with_uf
     puts "Carregando..."
-    @input = @uf.select_uf_id(LOCAL_URL)
+    @input = @uf.select_uf_id
+    # @input = @uf.select_uf_id(LOCAL_URL)
     @messages.message_table_name
-    @name.show(base: RANKING_URL, local: @input)
+    @name.show(local: @input)
+    # @name.show(base: RANKING_URL, local: @input)
     @messages.message_table_female_name
-    @name.show(base: RANKING_URL, local: @input, gender: 'f')
+    @name.show(local: @input, gender: 'f')
+    # @name.show(base: RANKING_URL, local: @input, gender: 'f')
     @messages.message_table_male_name
-    @name.show(base: RANKING_URL, local: @input, gender: 'm')
+    @name.show(local: @input, gender: 'm')
+    # @name.show(base: RANKING_URL, local: @input, gender: 'm')
     @messages.message_end_query
   end
 
   def query_with_city
     puts "Carregando..."
-    @input = @uf.select_uf_id(LOCAL_URL)
+    @input = @uf.select_uf_id
+    # @input = @uf.select_uf_id(LOCAL_URL)
     @messages.message_table_name
-    @input = @city.select_city_id(LOCAL_URL, @input)
-    @name.show(base: RANKING_URL, local: @input)
+    @input = @city.select_city_id(local: @input)
+    @name.show(local: @input)
+    # @name.show(base: RANKING_URL, local: @input)
     @messages.message_table_female_name
-    @name.show(base: RANKING_URL, local: @input, gender: 'f')
+    @name.show(local: @input, gender: 'f')
+    # @name.show(base: RANKING_URL, local: @input, gender: 'f')
     @messages.message_table_male_name
-    @name.show(base: RANKING_URL, local: @input, gender: 'm')
+    @name.show(local: @input, gender: 'm')
+    # @name.show(base: RANKING_URL, local: @input, gender: 'm')
     @messages.message_end_query
   end
 
@@ -84,7 +92,7 @@ class Censo
     puts "\n==================================================\n\n"
     puts "AVISO: Não coloque nomes compostos e nem acentos!"
     print "Digite o/os nome(s) sem espaço e separadas por ',' para consultar: "
-    @input = gets.chomp
+    @input = gets.chomp 
     puts "\n==================================================\n"
     @frequency_names.main(NOMES_URL, @input)
     @messages.message_end_query

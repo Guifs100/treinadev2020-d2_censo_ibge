@@ -3,9 +3,11 @@ require 'json'
 require 'terminal-table'
 class City
 
-  def select_city_id(url, local)
+  LOCAL_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+
+  def select_city_id(base: LOCAL_URL, local: local)
     city_id = []
-    response = Faraday.get("#{url}/#{local}/municipios")
+    response = Faraday.get("#{base}/#{local}/municipios")
     response_body = JSON.parse(response.body, symbolize_names: true)
     table = show_cities(response_body)
     loop do

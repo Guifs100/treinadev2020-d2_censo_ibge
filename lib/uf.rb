@@ -3,15 +3,17 @@ require 'json'
 require 'terminal-table'
 class Uf
 
+  LOCAL_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+
   def initialize
     @body = 0
     @input = []
     @table = 0
   end
 
-  def select_uf_id(irl)
+  def select_uf_id
     @input = []
-    response = Faraday.get(irl)
+    response = Faraday.get(LOCAL_URL)
     @body = JSON.parse(response.body, symbolize_names: true)
     @table = show_ufs(@body)
     message_input(@body)

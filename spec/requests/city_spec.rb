@@ -79,6 +79,6 @@ describe City do
     stub_request(:get, "#{base}/35/municipios").with(headers: headers).
          to_return(status: 200, body: body_sp.to_json, headers: {})
 
-    expect(City.new.select_city_id(base, 35)).to eq (3500105)
+    expect(City.new.select_city_id(base: base,local: 35)).to eq (3500105)
   end
 end

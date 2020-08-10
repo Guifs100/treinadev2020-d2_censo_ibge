@@ -3,11 +3,13 @@ require 'json'
 require 'terminal-table'
 class Name
 
-  def initialize 
-    @base = "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking"
-  end
+  RANKING_URL = "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking"
 
-  def show(base: @base, local: nil, gender: nil)
+  # def initialize 
+  #   @base = "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking"
+  # end
+
+  def show(base: RANKING_URL, local: nil, gender: nil)
     if local.nil?
       url = base
     elsif gender.nil?
