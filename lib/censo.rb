@@ -11,6 +11,10 @@ class Censo
   BY_CITY = 2.freeze
   BY_FREQ_NAME = 3.freeze
   EXIT = 4.freeze
+  LOCAL_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+  RANKING_URL = "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking"
+  NOMES_URL = "https://servicodados.ibge.gov.br/api/v2/censos/nomes/"
+
   
   def initialize(input: 0)
     @city = City.new
@@ -53,26 +57,26 @@ class Censo
 
   def query_with_uf
     puts "Carregando..."
-    @input = @uf.select_uf_id("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+    @input = @uf.select_uf_id(LOCAL_URL)
     @messages.message_table_name
-    @name.show(base: "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking", local: @input)
+    @name.show(base: RANKING_URL, local: @input)
     @messages.message_table_female_name
-    @name.show(base: "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking", local: @input, gender: 'f')
+    @name.show(base: RANKING_URL, local: @input, gender: 'f')
     @messages.message_table_male_name
-    @name.show(base: "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking", local: @input, gender: 'm')
+    @name.show(base: RANKING_URL, local: @input, gender: 'm')
     @messages.message_end_query
   end
 
   def query_with_city
     puts "Carregando..."
-    @input = @uf.select_uf_id("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+    @input = @uf.select_uf_id(LOCAL_URL)
     @messages.message_table_name
-    @input = @city.select_city_id("https://servicodados.ibge.gov.br/api/v1/localidades/estados", @input)
-    @name.show(base: "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking", local: @input)
+    @input = @city.select_city_id(LOCAL_URL, @input)
+    @name.show(base: RANKING_URL, local: @input)
     @messages.message_table_female_name
-    @name.show(base: "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking", local: @input, gender: 'f')
+    @name.show(base: RANKING_URL, local: @input, gender: 'f')
     @messages.message_table_male_name
-    @name.show(base: "https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking", local: @input, gender: 'm')
+    @name.show(base: RANKING_URL, local: @input, gender: 'm')
     @messages.message_end_query
   end
 
@@ -82,7 +86,7 @@ class Censo
     print "Digite o/os nome(s) sem espaço e separadas por ',' para consultar: "
     @input = gets.chomp
     puts "\n==================================================\n"
-    @frequency_names.main("https://servicodados.ibge.gov.br/api/v2/censos/nomes/", @input)
+    @frequency_names.main(NOMES_URL, @input)
     @messages.message_end_query
   end
 

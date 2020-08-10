@@ -1,5 +1,6 @@
 require 'terminal-table'
 class Messages
+
   def initialize
     @table_welcome = set_table_welcome
     @table_queries = set_table_queries
@@ -24,24 +25,28 @@ class Messages
   end
 
   def message_table_name
-    puts "\n\n=================================================="
-    puts "\n\nRanking dos nomes mais comuns\n\n"
+    space_line
+    puts "Ranking dos nomes mais comuns\n"
   end
 
   def message_table_female_name
-    puts "\n\n=================================================="
-    puts "\n\nRanking dos nomes femininos mais comuns\n\n"
+    space_line
+    puts "Ranking dos nomes femininos mais comuns\n"
   end
 
   def message_table_male_name
-    puts "\n\n=================================================="
-    puts "\n\nRanking dos nomes masculinos mais comuns\n\n"
+    space_line
+    puts "Ranking dos nomes masculinos mais comuns\n"
   end
 
   def message_end_query
-    puts "\n\n==================================================\n\n"
-    puts "\nConsulta Encerrada\n"
-    puts "\n\n==================================================\n\n"
+    space_line
+    print "Consulta Encerrada"
+    space_line
+  end
+
+  def space_line
+    print "\n\n==================================================\n\n"
   end
 
   private 
