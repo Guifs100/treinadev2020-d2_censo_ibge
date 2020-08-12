@@ -1,6 +1,10 @@
 require 'terminal-table'
 class Messages
 
+  BY_UF = 1.freeze
+  BY_CITY = 2.freeze
+  BY_FREQ_NAME = 3.freeze
+
   def initialize
     @table_welcome = set_table_welcome
     @table_queries = set_table_queries
@@ -15,11 +19,11 @@ class Messages
   end
 
   def message_query_selected(number)
-    if number == 1
+    if number == BY_UF
       puts "\n\nConsulta de Ranking dos nomes mais comuns da UF\n\n"
-    elsif number == 2
+    elsif number == BY_CITY
       puts "\n\nConsulta de Ranking dos nomes mais comuns da cidade\n\n"
-    elsif number == 3
+    elsif number == BY_FREQ_NAME
       puts "\n\nFrequência do uso do nome ao longo dos anos\n\n"
     end
   end

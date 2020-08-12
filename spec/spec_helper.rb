@@ -4,6 +4,9 @@ require 'json'
 require 'pry-byebug'
 require 'faraday'
 require 'active_support/all'
+require 'simplecov'
+
+SimpleCov.start
 
 PROJECT_ROOT = File.expand_path('..', __dir__)
 

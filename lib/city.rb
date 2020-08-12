@@ -1,16 +1,19 @@
 require 'faraday'
 require 'json'
 require 'terminal-table'
+require './lib/messages'
 class City
 
   LOCAL_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+  MESSAGES = Messages.new
 
-  def select_city_id(base: LOCAL_URL, local: local)
+  def select_city_id(base: LOCAL_URL, local: nil)
     city_id = []
     response = Faraday.get("#{base}/#{local}/municipios")
     response_body = JSON.parse(response.body, symbolize_names: true)
     table = show_cities(response_body)
     loop do
+      print "Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: "
       city_id = select_city(response_body)
       unless city_id[2].nil?
         break
@@ -26,7 +29,7 @@ class City
 
   def select_city(response_body)
     aux = []
-    print "Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: "
+    # print "Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: "
     input = -1 + gets.to_i
     if input >= 0 && input < response_body.count
       aux << input

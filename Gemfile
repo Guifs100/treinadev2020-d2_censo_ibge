@@ -11,4 +11,9 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9.0'
   gem 'rspec', '~> 3.9.0'
   gem 'webmock', '~> 3.8.0'
+  gem 'rubocop', '~> 0.89.0', require: false
+end
+
+group :test do
+  gem 'simplecov', require: false
 end

@@ -68,7 +68,7 @@ describe City do
     expect(city.select_city(response_body)[0]).to eq (0)
     expect(city.select_city(response_body)[1]).to eq (3500105)
     expect(city.select_city(response_body)[2]).to eq ('Adamantina')
-    expect{city.select_city(response_body)[0]}.to output(/Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: /).to_stdout
+    # expect{city.select_city(response_body)[0]}.to output(/Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: /).to_stdout
     expect(city.select_city(response_body)[1]).not_to eq (3500204)
     expect(city.select_city(response_body)[1]).not_to eq (2)
 
