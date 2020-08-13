@@ -14,7 +14,8 @@ class City
     table = show_cities(response_body)
     loop do
       print "Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: "
-      city_id = select_city(response_body)
+      input = -1 + gets.to_i
+      city_id = select_city(response_body, input)
       unless city_id[2].nil?
         break
       end
@@ -27,12 +28,13 @@ class City
     city_id[1]
   end
 
-  def select_city(response_body)
+  def select_city(response_body, input)
     aux = []
     # print "Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: "
-    input = -1 + gets.to_i
+    # input = -1 + gets.to_i
     if input >= 0 && input < response_body.count
       aux << input
+      # binding.pry
       aux << response_body[input][:id]
       aux << response_body[input][:nome]
     end

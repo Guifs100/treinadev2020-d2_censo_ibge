@@ -56,8 +56,7 @@ describe City do
     expect{City.new.show_cities(response_body)}.to output(/Águas da Prata/).to_stdout
   end
 
-  it 'Input City correctly' do
-    allow_any_instance_of(City).to receive(:gets).and_return(1)
+  it 'Receive city infos' do
     stub_request(:get, "#{base}/35/municipios").with(headers: headers).
          to_return(status: 200, body: body_sp.to_json, headers: {})
 
@@ -65,20 +64,19 @@ describe City do
     response = Faraday.get("#{base}/35/municipios")
     response_body = JSON.parse(response.body, symbolize_names: true)
 
-    expect(city.select_city(response_body)[0]).to eq (0)
-    expect(city.select_city(response_body)[1]).to eq (3500105)
-    expect(city.select_city(response_body)[2]).to eq ('Adamantina')
-    # expect{city.select_city(response_body)[0]}.to output(/Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: /).to_stdout
-    expect(city.select_city(response_body)[1]).not_to eq (3500204)
-    expect(city.select_city(response_body)[1]).not_to eq (2)
+    expect(city.select_city((response_body),0)[0]).to eq (0)
+    expect(city.select_city((response_body),0)[1]).to eq (3500105)
+    expect(city.select_city((response_body),0)[2]).to eq ('Adamantina')
+    expect(city.select_city((response_body),0)[1]).not_to eq (3500204)
+    expect(city.select_city((response_body),0)[1]).not_to eq (2)
 
   end
 
-  it 'Receive city id' do
+  it 'Output message ' do
     allow_any_instance_of(City).to receive(:gets).and_return(1)
     stub_request(:get, "#{base}/35/municipios").with(headers: headers).
          to_return(status: 200, body: body_sp.to_json, headers: {})
 
-    expect(City.new.select_city_id(base: base,local: 35)).to eq (3500105)
+    expect{City.new.select_city_id(base: base,local: 35)}.to output(/Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: /).to_stdout
   end
 end
