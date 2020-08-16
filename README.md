@@ -5,8 +5,9 @@
 ![Badge](https://img.shields.io/github/forks/Guifs100/treinadev2020-d2_censo_ibge)
 ![Badge](https://img.shields.io/github/stars/Guifs100/treinadev2020-d2_censo_ibge)
 ![Badge](https://img.shields.io/github/license/Guifs100/treinadev2020-d2_censo_ibge)
+![Badge](https://img.shields.io/badge/code%20style-rubocop-brightgreen)
 ![Badge](
-![Badge](
+![Coverage](https://marcgrimme.github.io/simplecov-small-badge/badges/coverage_badge_total.png)
 ## Sumário
 
 [1. Descrição do Projeto](#descricao)
