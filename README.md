@@ -1,7 +1,12 @@
 # treinadev2020-d2_censo_ibge
 
 ![Badge](https://img.shields.io/badge/STATUS-PROGRESS-orange)
-
+![Badge](https://img.shields.io/github/issues/Guifs100/treinadev2020-d2_censo_ibge)
+![Badge](https://img.shields.io/github/forks/Guifs100/treinadev2020-d2_censo_ibge)
+![Badge](https://img.shields.io/github/stars/Guifs100/treinadev2020-d2_censo_ibge)
+![Badge](https://img.shields.io/github/license/Guifs100/treinadev2020-d2_censo_ibge)
+![Badge](
+![Badge](
 ## Sumário
 
 [1. Descrição do Projeto](#descricao)
