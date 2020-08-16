@@ -1,4 +1,0 @@
-
-#!/usr/bin/env sh
-
-ruby censo_ibge.rb
