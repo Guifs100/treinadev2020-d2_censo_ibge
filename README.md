@@ -85,7 +85,7 @@ As gems utilizadas foram.
  ~~~
  Inicie a aplicação
  ~~~
- ruby censo_ibge.rb 
+ ./start
  ~~~
 
 ### Consultas <a name = "consultas"></a>
