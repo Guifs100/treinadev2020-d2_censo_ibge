@@ -36,7 +36,8 @@ class Uf
 
   def message_input(body)
     loop do
-      print "Digite a UF que deseja buscar os nomes comuns: "
+      # print "Digite a UF que deseja buscar os nomes comuns: "
+      Messages.type("a UF que deseja buscar os nomes comuns")
       @input = select_uf(body)
       unless @input[1].nil?
         break

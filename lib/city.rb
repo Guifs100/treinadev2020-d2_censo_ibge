@@ -13,7 +13,8 @@ class City
     response_body = JSON.parse(response.body, symbolize_names: true)
     table = show_cities(response_body)
     loop do
-      print "Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: "
+      # print "Digite : "
+      Messages.type("o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns")
       input = -1 + gets.to_i
       city_id = select_city(response_body, input)
       unless city_id[2].nil?

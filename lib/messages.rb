@@ -53,6 +53,22 @@ class Messages
     print "\n\n==================================================\n\n"
   end
 
+  def loading
+    puts "Carregando..."
+  end
+
+  def invalid_value
+    puts "\n\nValor inválido, digite apena um número da tabela\n\n"
+  end
+
+  def end_program
+    puts "\n\nObrigado por utilizar a aplicação. Até a próxima\n\n"
+  end
+
+  def self.type(message)
+    print "Digite #{message}: "
+  end
+
   private 
 
   def set_table_welcome
