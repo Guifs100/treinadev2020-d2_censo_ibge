@@ -77,6 +77,6 @@ describe City do
     stub_request(:get, "#{base}/35/municipios").with(headers: headers).
          to_return(status: 200, body: body_sp.to_json, headers: {})
 
-    expect{City.new.select_city_id(base: base,local: 35)}.to output(/Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: /).to_stdout
+    expect{City.new.get_city_id(local: 35)}.to output(/Digite o NÚMERO DA OPÇÃO da Cidade que deseja buscar os nomes comuns: /).to_stdout
   end
 end

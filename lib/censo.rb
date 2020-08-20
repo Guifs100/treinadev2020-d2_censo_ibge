@@ -17,77 +17,77 @@ class Censo
   LOCAL_URL = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
   RANKING_URL = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking'
   NOMES_URL = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/'
+  CITY = City.new
+  MESSAGES = Messages.new
+  NAME = Name.new
+  UF = Uf.new
+  FREQ_NAME = FrequencyNames.new
 
-  def initialize(input: 0)
-    @city = City.new
-    @frequency_names = FrequencyNames.new
-    @input = input
-    @uf = Uf.new
-    @name = Name.new
-    @messages = Messages.new
-  end
+  # def initialize(input: 0)
+  #   input = input
+  # end
 
   def start
-    @messages.welcome
+    input = 0
+    MESSAGES.welcome
     loop do
-      @messages.select_query
+      MESSAGES.select_query
       Messages.type('um número')
-      @input = gets.to_i
-      query(@input)
-      break if @input == 4
+      input = gets.to_i
+      query(input)
+      break if input == 4
     end
   end
 
   def query(query)
     case query
     when BY_UF
-      @messages.message_query_selected(query)
+      MESSAGES.message_query_selected(query)
       query_with_uf
     when BY_CITY
-      @messages.message_query_selected(query)
+      MESSAGES.message_query_selected(query)
       query_with_city
     when BY_FREQ_NAME
-      @messages.message_query_selected(query)
+      MESSAGES.message_query_selected(query)
       query_with_frequency_name
     when EXIT
-      @messages.end_program
+      MESSAGES.end_program
     else
-      @messages.invalid_value
+      MESSAGES.invalid_value
     end
   end
 
   def query_with_uf
-    @messages.loading
-    @input = @uf.select_uf_id
-    @messages.message_table_name
-    @name.show(local: @input)
-    @messages.message_table_female_name
-    @name.show(local: @input, gender: 'f')
-    @messages.message_table_male_name
-    @name.show(local: @input, gender: 'm')
-    @messages.message_end_query
+    MESSAGES.loading
+    input = UF.select_uf_id
+    MESSAGES.message_table_name
+    NAME.show(local: input)
+    MESSAGES.message_table_female_name
+    NAME.show(local: input, gender: 'f')
+    MESSAGES.message_table_male_name
+    NAME.show(local: input, gender: 'm')
+    MESSAGES.message_end_query
   end
 
   def query_with_city
-    @messages.loading
-    @input = @uf.select_uf_id
-    @messages.message_table_name
-    @input = @city.select_city_id(local: @input)
-    @name.show(local: @input)
-    @messages.message_table_female_name
-    @name.show(local: @input, gender: 'f')
-    @messages.message_table_male_name
-    @name.show(local: @input, gender: 'm')
-    @messages.message_end_query
+    MESSAGES.loading
+    input = UF.select_uf_id
+    input = CITY.get_city_id(local: input)
+    NAME.show(local: input)
+    MESSAGES.message_table_female_name
+    NAME.show(local: input, gender: 'f')
+    MESSAGES.message_table_male_name
+    NAME.show(local: input, gender: 'm')
+    MESSAGES.message_end_query
   end
 
   def query_with_frequency_name
-    @messages.space_line
+    MESSAGES.space_line
     puts 'AVISO: Não coloque nomes compostos e nem acentos!'
     Messages.type("o/os nome(s) sem espaço e separadas por ',' para consultar")
-    @input = gets.chomp
-    @messages.space_line
-    @frequency_names.main(NOMES_URL, @input)
-    @messages.message_end_query
+    input = gets.chomp
+    MESSAGES.space_line
+    FREQ_NAME.main(NOMES_URL, input)
+    MESSAGES.message_end_query
   end
 end
